@@ -8,16 +8,19 @@ CREATE TABLE Customers (
     phone VARCHAR(20)
 );
 
+-- 2. TABEL Caategories
 CREATE TABLE Categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(100) NOT NULL
 );
 
+-- 3. TABEL Payment Methods
 CREATE TABLE Payment_Methods (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     method_name VARCHAR(100) NOT NULL
 );
 
+-- 4. TABEL Tables
 CREATE TABLE Tables (
     table_id INT AUTO_INCREMENT PRIMARY KEY,
     table_number VARCHAR(10) NOT NULL,
@@ -26,7 +29,7 @@ CREATE TABLE Tables (
     status ENUM('Available', 'Occupied', 'Reserved', 'Maintenance') DEFAULT 'Available'
 );
 
--- 2. TABEL MENU
+-- 5. TABEL MENU
 CREATE TABLE Menu (
     menu_id INT AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(255) NOT NULL,
@@ -39,7 +42,7 @@ CREATE TABLE Menu (
     FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 );
 
--- 3. TABEL ORDERS
+-- 6. TABEL ORDERS
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -54,7 +57,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (payment_id) REFERENCES Payment_Methods(payment_id)
 );
 
--- 4. TABEL ORDER DETAILS
+-- 7. TABEL ORDER DETAILS
 CREATE TABLE Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -66,7 +69,7 @@ CREATE TABLE Order_Details (
     FOREIGN KEY (menu_id) REFERENCES Menu(menu_id)
 );
 
--- 5. TABEL RESERVATIONS (Member Only)
+-- 8. TABEL RESERVATIONS (Member Only)
 CREATE TABLE Reservations (
     reservation_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
@@ -81,7 +84,7 @@ CREATE TABLE Reservations (
     FOREIGN KEY (table_id) REFERENCES Tables(table_id)
 );
 
--- 6. TABEL REVIEWS
+-- 9. TABEL REVIEWS
 CREATE TABLE Reviews (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
