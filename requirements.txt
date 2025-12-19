@@ -1,9 +1,0 @@
-# =====================================================
-# REQUIREMENTS - Library yang dibutuhkan
-# =====================================================
-# Jalankan: pip install -r requirements.txt
-
-streamlit>=1.28.0
-pandas>=2.0.0
-plotly>=5.18.0
-mysql-connector-python>=8.2.0
